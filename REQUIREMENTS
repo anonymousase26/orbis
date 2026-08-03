@@ -16,19 +16,16 @@
 ## Docker Image
 
 Pull the pre-built Docker image:
-
 ```bash
 docker pull minjongkim99/orbis-ase26:v1.1
 ```
 
 Run the container:
-
 ```
 docker run --rm -it --ulimit stack=-1:-1 minjongkim99/orbis-ase26:v1.1 /bin/bash
 ```
 
 ## Dependencies
-
 - All required dependencies, including ORBiS, Python, LLVM, KLEE, STP, and the benchmark programs, are pre-installed in the Docker image.
 - No additional installation is required when using Docker.
 
