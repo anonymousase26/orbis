@@ -19,7 +19,7 @@ docker pull minjongkim99/orbis-ase26:v1.1
 ```
 
 Run the container:
-```
+```bash
 docker run --rm -it --ulimit stack=-1:-1 minjongkim99/orbis-ase26:v1.1 /bin/bash
 ```
 
