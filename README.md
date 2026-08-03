@@ -1,6 +1,6 @@
-# ORBiS: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage
+# Orbis: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage
 
-This repository presents the data and results for the paper "ORBiS: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage"
+This repository presents the data and results for the paper "Orbis: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage"
 
 #
 ### Build ORBiS
