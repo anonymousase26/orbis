@@ -119,7 +119,7 @@ usage: orbis [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY]
 | Option | Description |
 |:------:|:------------|
 | `-t, --budget` | Total time budget of ORBiS |
-| `llvm_bc` | LLVM bitecode file for klee |
+| `llvm_bc` | LLVM bitcode file for klee |
 | `gcov_obj` | Executable with gcov support |
 
 ## Usage of Other Programs
@@ -131,7 +131,7 @@ usage: report_bugs.py [-h] [--benchmark STR] [--table PATH] [DIRS ...]
 | Option | Description |
 |:------:|:------------|
 | `-h, --help`  | Show this help message and exit |
-| `--benchmark` | Name of benchmark & verison |
+| `--benchmark` | Name of benchmark & version |
 | `--table`     | Path to save bug table graph |
 | `DIRS`        | Name of directory to detect bugs |
 
@@ -144,7 +144,7 @@ usage: report_coverage.py [-h] [--benchmark STR] [--graph PATH] [--budget TIME] 
 | Option | Description |
 |:------:|:------------|
 | `-h, --help`  | Show help message and exit |
-| `--benchmark` | Name of benchmark & verison |
+| `--benchmark` | Name of benchmark & version |
 | `--graph`     | Path to save coverage graph |
 | `--budget`    | Time budget of the coverage graph |
 | `DIRS`        | Names of directories to draw figure |
