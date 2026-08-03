@@ -6,7 +6,7 @@ This repository presents the data and results for the paper "Orbis: Guiding Symb
 ### Build ORBiS
 We recommend building Orbis quickly and easily using a Docker image. To check the build process, refer to the Dockerfile in this repository.
 ```bash
-$ git clone https://github.com/anonymousase26/orbis.git
+$ docker pull minjongkim99/orbis-ase26:v1.1
 $ docker run -it --ulimit='stack=-1:-1' minjongkim99/orbis-ase26:v1.1 /bin/bash
 ```
 
