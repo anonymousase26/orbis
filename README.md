@@ -15,9 +15,17 @@ If a program is tested without data in the '/orbis/data/option_dict' and '/orbis
 
 ### Run ORBiS
 Finally, you can run ORBiS with the following code. (e.g. grep-3.4).
+
+**Quick smoke test (6 Minutes)**
 ```bash
 /orbis/benchmarks $ orbis -p grep -t 360 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
+
+**Full Experiment (24 Hours)**
+```bash
+/orbis/benchmarks $ orbis -p grep -t 86400 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
+```
+
 Format : orbis -p <target_program> -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to_exec_file(gcov)>
 + -p : Target Program
 + -t : Time Budget (seconds)
