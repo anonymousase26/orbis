@@ -4,20 +4,10 @@ This repository presents the data and results for the paper "Orbis: Guiding Symb
 
 #
 ### Build ORBiS
-First, you have to clone our source code. 
+We recommend building Orbis quickly and easily using a Docker image. To check the build process, refer to the Dockerfile in this repository.
 ```bash
 $ git clone https://github.com/anonymousase26/orbis.git
-```
-
-Second, build ORBiS with Dockerfile. If you run the command below, ORBiS will be built, and a benchmark (grep-3.4) will be installed.
-```bash
-$ cd orbis
-/orbis $ docker build -t orbis .
-```
-
-Third, connect to Docker using the command below. The command will take you to a directory named orbis.
-```bash
-/orbis $ docker run -it --ulimit='stack=-1:-1' orbis
+$ docker run -it --ulimit='stack=-1:-1' minjongkim99/orbis-ase26:v1.1 /bin/bash
 ```
 
 If a program is tested without data in the '/orbis/data/option_dict' and '/orbis/data/opt_branches', ORBiS will fail to operate correctly and display an error. In such cases, you can use the provided tracer to generate the data files. Please refer to the README file in the 'tracer' directory for detailed instructions.
