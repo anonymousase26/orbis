@@ -182,7 +182,7 @@ Download the following file from the URL
 By clicking file or running the following codes on the terminal, you can download the data files.
 
 ```
-$ wget https://github.com/anonymousase26/orbis/releases/download/experimental_result/orbis_experiments.zip
+$ wget https://github.com/minjongkim99/orbis/releases/download/experimental_result/orbis_experiments.zip
 $ unzip orbis_experiments.zip
 ```
 
