@@ -8,9 +8,9 @@
 
 ## Software Requirements
 - Operating System: Linux
-- Docker: Required (tested with Docker 24.x and above)
+- Docker: Required (tested with Docker 24.x)
 - Internet connection: Required to download the Docker image
-- Python environment: python 3.9+
+- Python environment: python 3.9+ (if build in local)
 
 ## Docker Image
 Pull the pre-built Docker image:
