@@ -32,7 +32,7 @@ WORKDIR /root
 
 # Install ORBiS
 WORKDIR ${BASE_DIR}
-RUN git clone https://github.com/anonymousase26/orbis.git
+RUN git clone https://github.com/minjongkim99/orbis.git
 WORKDIR ${BASE_DIR}/orbis
 RUN python3 setup.py install
 
