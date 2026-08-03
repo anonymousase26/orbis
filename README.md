@@ -16,7 +16,7 @@ If a program is tested without data in the '/orbis/data/option_dict' and '/orbis
 ### Run ORBiS
 Finally, you can run ORBiS with the following code. (e.g. grep-3.4).
 ```bash
-/orbis/benchmarks $ orbis -p grep -t 3600 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
+/orbis/benchmarks $ orbis -p grep -t 360 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
 Format : orbis -p <target_program> -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to_exec_file(gcov)>
 + -p : Target Program
@@ -28,16 +28,14 @@ Then, you will see logs as follows.
 ```bash
 [INFO] ORBiS : Coverage will be recorded at "ORBiS_TEST/coverage.csv" at every iteration.
 [INFO] ORBiS : All configuration loaded. Start testing.
-[INFO] ORBiS : Iteration: 1 Iteration budget: 120 Total budget: 3600 Time elapsed: 141 Used argument:  Coverage: 1711
-[INFO] ORBiS : Iteration: 2 Iteration budget: 120 Total budget: 3600 Time elapsed: 283 Used argument: -G Coverage: 2481
+[INFO] ORBiS : Iteration: 1 Iteration budget: 120 Total budget: 360 Time elapsed: 141 Used argument:  Coverage: 1711
+[INFO] ORBiS : Iteration: 2 Iteration budget: 120 Total budget: 360 Time elapsed: 283 Used argument: -G Coverage: 2481
 ```
 
 When the time budget expires without error, you can see the following output.
 ```bash
-[INFO] ORBiS : Iteration: 24 Iteration budget: 120 Total budget: 3600 Time elapsed: 3341 Used argument: -l Coverage: 3167 
-[INFO] ORBiS : Iteration: 25 Iteration budget: 120 Total budget: 3600 Time elapsed: 3479 Used argument: -q Coverage: 3168
-[INFO] ORBiS : Iteration: 26 Iteration budget: 120 Total budget: 3600 Time elapsed: 3625 Used argument: -c Coverage: 3169 
-[INFO] ORBiS : Testing done. Achieve 3169 coverage.
+[INFO] ORBiS : Iteration: 3 Iteration budget: 120 Total budget: 360 Time elapsed: 360 Used argument: -l Coverage: 2662 
+[INFO] ORBiS : Testing done. Achieve 2662 coverage.
 ```
 
 
