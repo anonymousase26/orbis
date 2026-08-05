@@ -3,27 +3,29 @@
 This repository presents the data and results for the paper "Orbis: Guiding Symbolic Execution Techniques to Maximize Option-Related Branch Coverage"
 
 #
-### Build ORBiS
+### Build Orbis
 We recommend building Orbis quickly and easily using a Docker image. To check the build process, refer to the Dockerfile in this repository.
 ```bash
 $ docker pull minjongkim99/orbis-ase26:v1.1
 $ docker run -it --ulimit='stack=-1:-1' minjongkim99/orbis-ase26:v1.1 /bin/bash
 ```
 
-If a program is tested without data in the '/orbis/data/option_dict' and '/orbis/data/opt_branches', ORBiS will fail to operate correctly and display an error. In such cases, you can use the provided tracer to generate the data files. Please refer to the README file in the 'tracer' directory for detailed instructions.
+If a program is tested without data in the '/orbis/data/option_dict' and '/orbis/data/opt_branches', Orbis will fail to operate correctly and display an error. In such cases, you can use the provided tracer to generate the data files. Please refer to the README file in the 'tracer' directory for detailed instructions.
 
 
-### Run ORBiS
-Finally, you can run ORBiS with the following code. (e.g. grep-3.4).
+### Run Orbis
+Finally, you can run Orbis with the following code. (e.g. grep-3.4).
 
 **Quick smoke test (6 Minutes)**
 ```bash
-/orbis/benchmarks $ orbis -p grep -t 360 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
+/orbis $ cd benchmarks
+/orbis/benchmarks $ orbis -p grep -t 360 -d Orbis_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
 
 **Full Experiment (24 Hours)**
 ```bash
-/orbis/benchmarks $ orbis -p grep -t 86400 -d ORBiS_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
+/orbis $ cd benchmarks
+/orbis/benchmarks $ orbis -p grep -t 86400 -d Orbis_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
 
 Format : orbis -p <target_program> -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to_exec_file(gcov)>
@@ -34,7 +36,7 @@ Format : orbis -p <target_program> -t <time_budget> -d <output_dir> <path_to_bc_
 
 Then, you will see logs as follows.
 ```bash
-[INFO] ORBiS : Coverage will be recorded at "ORBiS_TEST/coverage.csv" at every iteration.
+[INFO] ORBiS : Coverage will be recorded at "Orbis_TEST/coverage.csv" at every iteration.
 [INFO] ORBiS : All configuration loaded. Start testing.
 [INFO] ORBiS : Iteration: 1 Iteration budget: 120 Total budget: 360 Time elapsed: 141 Used argument:  Coverage: 1711
 [INFO] ORBiS : Iteration: 2 Iteration budget: 120 Total budget: 360 Time elapsed: 283 Used argument: -G Coverage: 2481
@@ -49,30 +51,30 @@ When the time budget expires without error, you can see the following output.
 
 ## Reporting Results
 ### Branch Coverage
-If you want to get results about how many branches ORBiS has covered, run the following command.
+If you want to get results about how many branches Orbis has covered, run the following command.
 ```bash
 # Needs 'matplotlib' package --> pip3 install matplotlib
 /orbis/benchmarks $ pip3 install matplotlib
-/orbis/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ORBiS_TEST 
+/orbis/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 Orbis_TEST 
 ```
 
 And if you want to compare multiple results in a graph, just list the directory names as: 
 ```bash
-/orbis/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ORBiS_TEST1 ORBiS_TEST2 ...
+/orbis/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 Orbis_TEST1 Orbis_TEST2 ...
 ```
 
 
 ### Bug Finding
-If you want to check information about what bugs ORBiS has found, run the following command.
+If you want to check information about what bugs Orbis has found, run the following command.
 ```bash
-/orbis/benchmarks $ python3 report_bugs.py --benchmark grep-3.4 ORBiS_TEST
+/orbis/benchmarks $ python3 report_bugs.py --benchmark grep-3.4 Orbis_TEST
 ```
 
 If the command is executed successfully, you will get a bug report in a file named "bug_result.txt".
 ```bash
 /orbis/benchmarks $ cat bug_result.txt
 # Example from find-4.7.0
-TestCase : /ORBiS_TEST/iteration-3/test000005.ktest
+TestCase : /Orbis_TEST/iteration-3/test000005.ktest
 Arguments : "./find" "-amin" "-+NAN" 
 CRASHED signal 6
 File: ../../find/parser.c
@@ -118,7 +120,7 @@ usage: orbis [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY]
 ### Required Arguments
 | Option | Description |
 |:------:|:------------|
-| `-t, --budget` | Total time budget of ORBiS |
+| `-t, --budget` | Total time budget of Orbis |
 | `llvm_bc` | LLVM bitcode file for klee |
 | `gcov_obj` | Executable with gcov support |
 
@@ -170,7 +172,7 @@ Here are brief descriptions of the files. Some less-important files may be omitt
     └── icse22                    https://github.com/skkusal/symtuner.git
 ├── tracer                        <Tool for getting option-related data>
 └── orbis                         <Main source code directory>
-    ├── bin.py                    Entry point of ORBiS
+    ├── bin.py                    Entry point of Orbis
     ├── construct.py              Constructing option arguments for each iteration
     ├── extract.py                Extracting options and option-related branches
     ├── guide.py                  Selecting efficient test-cases as seed 
