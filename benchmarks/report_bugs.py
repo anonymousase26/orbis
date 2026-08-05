@@ -85,9 +85,12 @@ def log_err_replays(fd_name, err_file, program, src):
 
 def extract_crash_tc(fd_name, table):
     print("[INFO] ParaSuit : Checking crashed testcases from %s directory" % (fd_name))
-    with open('./%s/errors' % (fd_name), 'r', encoding='ISO-8859-1') as err_file:
-        lines = err_file.read()
-        lines = lines.split("KLEE-REPLAY: NOTE: ")
+    if os.path.exists('./%s/errors' % (fd_name)):
+        with open('./%s/errors' % (fd_name), 'r', encoding='ISO-8859-1') as err_file:
+            lines = err_file.read()
+            lines = lines.split("KLEE-REPLAY: NOTE: ")
+    else:
+        lines = list()
     
     result_file = open("./%s" %(table), 'w', encoding='ISO-8859-1')
     found_bug = dict()
