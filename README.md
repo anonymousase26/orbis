@@ -6,8 +6,8 @@ This repository presents the data and results for the paper "Orbis: Guiding Symb
 ### Build Orbis
 We recommend building Orbis quickly and easily using a Docker image. To check the build process, refer to the Dockerfile in this repository.
 ```bash
-$ docker pull minjongkim99/orbis-ase26:v1.1
-$ docker run -it --ulimit='stack=-1:-1' minjongkim99/orbis-ase26:v1.1 /bin/bash
+$ docker pull minjongkim99/orbis-ase26:v1.3
+$ docker run -it --ulimit='stack=-1:-1' minjongkim99/orbis-ase26:v1.3 /bin/bash
 ```
 
 If a program is tested without data in the '/orbis/data/option_dict' and '/orbis/data/opt_branches', Orbis will fail to operate correctly and display an error. In such cases, you can use the provided tracer to generate the data files. Please refer to the README file in the 'tracer' directory for detailed instructions.
@@ -18,13 +18,11 @@ Finally, you can run Orbis with the following code. (e.g. grep-3.4).
 
 **Quick smoke test (6 Minutes)**
 ```bash
-/orbis $ cd benchmarks
 /orbis/benchmarks $ orbis -p grep -t 360 -d Orbis_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
 
 **Full Experiment (24 Hours)**
 ```bash
-/orbis $ cd benchmarks
 /orbis/benchmarks $ orbis -p grep -t 86400 -d Orbis_TEST grep-3.4/obj-llvm/src/grep.bc grep-3.4/obj-gcov/src/grep
 ```
 
